@@ -1,1 +1,3 @@
-# M3HT
+# Shinji Kusakabe
+# Workshop
+2022-2023

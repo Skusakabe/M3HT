@@ -19,3 +19,17 @@ def randdevo(dnary):
 
 for i in range(20):
     print(randdevo(krewes2))
+
+def user_picks(dnary):
+    choice1 = int(input("Type the number for the period you want to select from. -1 to pick a random period: "))
+    while (not(choice1 == 2 or choice1 == 7 or choice1 == 8 or choice1 == -1)):
+        print("Invalid value \n")
+        choice1 = int(input("Type the number for the period you want to select from. -1 to pick a random period: "))
+    choice2 = int(input("How many devos would you like to randomly select? "))
+    while (not(choice2 >= 0)):
+        print("Invalid value \n")
+        choice2 = int(input("How many devos would you like to randomly select? "))
+    for i in range(choice2):
+        print(randdevo(dnary))
+           
+user_picks(krewes2)

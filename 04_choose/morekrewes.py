@@ -9,6 +9,8 @@ Time spent: 0.2 hours
 
 DISCO:
 Parse parts of strings into a list using split(separator) method
+When adding a list to a list, you can put the list you're adding in [] to add the list that has all of the values
+as a single element rather than having an element for all of the values in the list seperately.
 
 QCC:
 
@@ -40,4 +42,19 @@ def sort_data(data):
         
 test1 = sort_data(generate_info(20))
 
-def rand_devo(dictionary):
+def rand_devo(dnary):
+    try:
+        alldevos = []
+        for i in (dnary.keys()):
+            thisperiod = dnary[i]
+            for j in (thisperiod):
+                j.append(i)
+                alldevos += [j]
+        randompick = rng.choice(alldevos)
+        print("Name: " + randompick[0] + " Period: " + randompick[2] + " Ducky name: " + randompick[1])
+    except:
+        print("Error, dict is length 0")
+        
+print(test1)
+print("\n")
+rand_devo(test1)

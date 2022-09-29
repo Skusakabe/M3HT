@@ -1,6 +1,20 @@
 import random as rng
 
-def generateinfo(times): ## times is the amount of data/people included in the info
+'''
+Shinji Verit
+SoftDev
+K05 duo mission
+2022-09-28
+Time spent: 0.2 hours
+
+DISCO:
+Parse parts of strings into a list using split(separator) method
+
+QCC:
+
+'''
+
+def generate_info(times): ## times is the amount of data/people included in the info
     result = ""
     for i in range(times):
         result += str(rng.randint(1,10)) + "$$$"
@@ -13,9 +27,7 @@ def generateinfo(times): ## times is the amount of data/people included in the i
                 result += "@@@"
     return result
 
-print(generateinfo(10))
-
-def sortdata(data):
+def sort_data(data):
     result = {}
     units = data.split("@@@")
     for i in range(len(units)):
@@ -26,5 +38,6 @@ def sortdata(data):
             result[features[0]] = [[features[1], features[2]]]
     return result
         
-print(sortdata(generateinfo(20)))
-    
+test1 = sort_data(generate_info(20))
+
+def rand_devo(dictionary):

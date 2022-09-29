@@ -5,7 +5,7 @@ Shinji Verit
 SoftDev
 K05 duo mission
 2022-09-28
-Time spent: 0.2 hours
+Time spent: 0.4 hours
 
 DISCO:
 Parse parts of strings into a list using split(separator) method
@@ -13,6 +13,11 @@ When adding a list to a list, you can put the list you're adding in [] to add th
 as a single element rather than having an element for all of the values in the list seperately.
 
 QCC:
+If you just pick a random period/key from a dictionary to pick a random devo, it likely won't actually be truly random
+as certain values could be more likely. For example, if there are 3 periods, one has 1 value and the others have 4 values,
+the chance of picking the value in the period with one value is 33%, while the chance of picking a specific value in another
+period is 1/4 as much. What's the best way to pick a fully random value from the dictionary without putting all of the
+values into a list and taking a random one?
 
 '''
 

@@ -21,11 +21,12 @@ QCC:
 directory/subdirectory/subdirectory/.../appfile
 2. In the terminal.
 3. It would print whatever __name__ contains
-4. No, a value is being returned not printed.
+4. No, a value is being returned not printed.    Turns out that it actually is printed on the
+browser when you click the link given in the terminal.
 5. Processing had a run method that is continually looped every frame.
 ...
 INVESTIGATIVE APPROACH:
 <Your concise summary of how
  you and your team set about
- "illuminating the cave of ignorance" here...>
+ "illuminating the cave of ignorance" here...> We combined our knowledge to try to answer the QCC's
 '''

@@ -1,4 +1,4 @@
-# Clyde 'Thluffy' Sinclair
+# DWS: David, Wan Ying, Shinji
 # SoftDev
 # Oct 2022
 
@@ -11,3 +11,9 @@ def hello_world():
 
 app.run()
 
+'''
+Differences: No print statement in hello_world()
+
+Notes:
+Doesn't print __main__ in the terminal when the link is clicked
+'''

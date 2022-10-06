@@ -1,4 +1,4 @@
-# Clyde 'Thluffy' Sinclair
+# DWS: David, Wan Ying, Shinji
 # SoftDev
 # Oct 2022
 

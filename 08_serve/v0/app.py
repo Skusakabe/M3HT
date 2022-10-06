@@ -16,7 +16,11 @@ app = Flask(__name__) # Makes a flask app
 def hello_world():
     print(__name__) # Prints in the terminal where the app is being run(__main__). Doing print(__main__) causes an error.
     return "No hablo queso!"  # What's printed on the browser when the link is clicked.
-    
+
+@app.route("/test")
+def new_funct():
+        return "Por favor"
 app.run()  # Runs the process. If this line doesn't exist, nothing is run.
 # Runs the first method attached to @app.route("/"), only one method can be attached to
 # a decorator. When the link is clicked, the method attached to @app.route("/") is run
+# A route is defined by a /[text] and multiple routes can be made

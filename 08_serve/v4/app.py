@@ -14,3 +14,10 @@ def hello_world():
 if __name__ == "__main__":  # true if this file NOT imported
     app.debug = True        # enable auto-reload upon code change
     app.run()
+
+'''
+Differences: Extra if statement to run the app and set debug to true
+
+Notes:
+Confirms that __name__ is __main__, at least when the code is run normally.
+'''

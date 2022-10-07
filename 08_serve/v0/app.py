@@ -23,4 +23,4 @@ def new_funct():
 app.run()  # Runs the process. If this line doesn't exist, nothing is run.
 # Runs the first method attached to @app.route("/"), only one method can be attached to
 # a decorator. When the link is clicked, the method attached to @app.route("/") is run
-# A route is defined by a /[text] and multiple routes can be made
+# Another route can be defined by a /[text] and multiple routes can exist at once.

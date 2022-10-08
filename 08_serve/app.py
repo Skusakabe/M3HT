@@ -36,7 +36,7 @@ def weighted_random(dnary):
             current_val += dnary[i]
             
 @app.route("/")
-def occupation_chooser():
+def occupation_chooser(): ## Cant use \n to linebreak, use </br> instead
     occ_file = open("occupations.csv", "r")
     a = csv_to_dict(occ_file)
     b = weighted_random(a)
@@ -46,7 +46,14 @@ def occupation_chooser():
     choice = "<h2 align = 'center'>" + b + "</h2> </br> </br> </br> </br>"
     occupationlist = "<h2 align = 'center'> Occupations: </h2> </br> <h4 align = 'center'>"
     for i in range(len(c)):
-        occupationlist += c[i] + "</br>"
+        splitstring = c[i].split(" ")
+        occupationlist += "<a href= https://www.youtube.com/results?search_query=how+to+become+a+"
+        for j in range(len(splitstring)):
+            occupationlist += splitstring[j]
+            if j < len(splitstring) - 1:
+                occupationlist += "+"
+        occupationlist += ">" + c[i] + "</a>" + "</br>"
+    occupationlist += "Other </br>"
     occupationlist += "</h4>"
     return tname + choice + occupationlist
 

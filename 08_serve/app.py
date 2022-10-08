@@ -40,7 +40,15 @@ def occupation_chooser():
     occ_file = open("occupations.csv", "r")
     a = csv_to_dict(occ_file)
     b = weighted_random(a)
-    return "<h1 align = 'center'> DWS: David, Wan Ying, Shinji </h1> </br> </br> </br>" + "<h2 align = 'center'>" + b + "</h2> </br> </br> </br> </br>" + str(a.keys())
+    c = list(a.keys())
+    c = c[0:len(c)-1:]
+    tname = "<h1 align = 'center'> DWS: David, Wan Ying, Shinji </h1> </br> </br> </br>"
+    choice = "<h2 align = 'center'>" + b + "</h2> </br> </br> </br> </br>"
+    occupationlist = "<h2 align = 'center'> Occupations: </h2> </br> <h4 align = 'center'>"
+    for i in range(len(c)):
+        occupationlist += c[i] + "</br>"
+    occupationlist += "</h4>"
+    return tname + choice + occupationlist
 
 if __name__ == "__main__":
     app.debug = True

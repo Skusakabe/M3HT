@@ -1,27 +1,34 @@
-# DWS: David, Wan Ying, Shinji
-# SoftDev
-# Oct 2022
+'''
+DWS: David, Wan Ying, Shinji
+SoftDev
+K06 duo mission
+2022-10-7
+Time spent: 1.5 hours
+DISCO:
+You can use HTML formatting in the strings to make it appear on the browser in the way you want it to.
+QCC:
+'''
 
 from flask import Flask
 import random as rng
-app = Flask(__name__) #create instance of class Flask
+app = Flask(__name__)
 
 
 def csv_to_dict(file):
     data = file.read()
     result = {}
-    lines = data.split("\n") #creates list of all the lines in the csv file
+    lines = data.split("\n")
     lines = lines[1:len(lines)-1]
 
     for oneline in lines:
-        if '"' in oneline: #checks for when there is an occupation containing commas
-            oneline = oneline[1::] #removes first quotation mark
-            values = oneline.split('"') #splits string on second quotation mark, creating a list with the two halves and removes the quotation mark
-            values[1] = values[1][1::] #removes the unwanted comma currently part of the string percentage: ",6.1" --> "6.1"values[1] = values[1][1::] #removes the unwanted comma currently part of the string percentage: ",6.1" --> "6.1"
-            result[values[0]] = float(values[1]) #adds occupation,percentage pair to dictionary while converting string percentage to float
+        if '"' in oneline:
+            oneline = oneline[1::]
+            values = oneline.split('"')
+            values[1] = values[1][1::]
+            result[values[0]] = float(values[1])
         else:
-            values = oneline.split(",") #splits string on comma, creating a list with the two halves and removes the comma
-            result[values[0]] = float(values[1]) #adds occupation,percentage pair to dictionary while converting string percentage to float
+            values = oneline.split(",")
+            result[values[0]] = float(values[1])
     return result
 
 def weighted_random(dnary):

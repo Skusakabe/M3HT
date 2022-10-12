@@ -47,8 +47,6 @@ def occupation_chooser(): ## Cant use \n to linebreak, use </br> instead
     occ_file = open("occupations.csv", "r")
     a = csv_to_dict(occ_file)
     b = weighted_random(a)
-    c = list(a.keys())
-    c = c[0:len(c)-1:]
     tname = "<h1 align = 'center'> DWS: David, Wan Ying, Shinji </h1> </br> </br> </br>"
     splitup = b.split(" ")
     choice = "<h2 align = 'center'>" + "<a href= https://www.youtube.com/results?search_query=how+to+go+into+"
@@ -57,17 +55,7 @@ def occupation_chooser(): ## Cant use \n to linebreak, use </br> instead
         if i < len(splitup) - 1:
             choice += "+"
     choice += ">" + b + "</a> </h2> </br> </br> </br> </br>"
-    occupationlist = "<h2 align = 'center'> Occupations: </h2> </br> <h4 align = 'center'>"
-    for i in range(len(c)):
-        splitstring = c[i].split(" ")
-        occupationlist += "<a href= https://www.youtube.com/results?search_query=how+to+go+into+"
-        for j in range(len(splitstring)):
-            occupationlist += splitstring[j]
-            if j < len(splitstring) - 1:
-                occupationlist += "+"
-        occupationlist += ">" + c[i] + "</a>" + "</br>"
-    occupationlist += "Other </br>"
-    occupationlist += "</h4>"
+    occupationlist = "<h2 align = 'center'> <a href= static/occupationlist.html> All occupations: </a> </h2> </br> <h4 align = 'center'>"
     return tname + choice + occupationlist
 
 if __name__ == "__main__":

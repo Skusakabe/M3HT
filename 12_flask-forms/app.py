@@ -1,6 +1,11 @@
-# Clyde 'Thluffy' Sinclair
-# SoftDev
-# Oct 2022
+'''
+Shinji, Jeffery, Sebastian
+SoftDev
+K<12> -- Post Get
+<2022>-<17>-<10>
+time spent: 2.60
+'''
+
 
 from flask import Flask             #facilitate flask webserving
 from flask import render_template   #facilitate jinja templating
@@ -28,7 +33,7 @@ PROTIP: Insert your own in-line comments
    understand what is going on.
 '''
 
-@app.route("/") #, methods=['GET', 'POST'])
+@app.route("/", methods=['GET', 'POST'])
 def disp_loginpage():
     print("\n\n\n")
     print("***DIAG: this Flask obj ***")
@@ -44,7 +49,7 @@ def disp_loginpage():
     return render_template( 'login.html' )
 
 
-@app.route("/auth") # , methods=['GET', 'POST'])
+@app.route("/auth", methods=['GET', 'POST'])
 def authenticate(): ## Maybe more methods will work in the /auth root
     print("\n\n\n")
     print("***DIAG: this Flask obj ***")
@@ -52,17 +57,29 @@ def authenticate(): ## Maybe more methods will work in the /auth root
     print("***DIAG: request obj ***")
     print(request)
     print("***DIAG: request.args ***")
-    print(request.args)
+    print(request.form)
     #print("***DIAG: request.args['username']  ***")
     #print(request.args['username']) This will work here, but not if uncommented in disp_loginpage
     print("***DIAG: request.headers ***")
     print(request.headers)
-    return render_template( 'response.html' )  #response to a form submission
-
-@app.route("/response")
+    print(request.method)
+    return render_template( 'response.html', username = request.form['username'], requesttype=request.method )  #response to a form submission
+'''
+@app.route("/response", methods=['GET','POST'])
 def response():
-    username =request.args['username']
-    return username
+    print("\n\n\n")
+    print("***DIAG: this Flask obj ***")
+    print(app)
+    print("***DIAG: request obj ***")
+    print(request)
+    print("***DIAG: request.args ***")
+    print(request.args)
+    print(request.method)
+    if request.method == 'POST':
+    username=request.form['username']
+    return (username)
+return "aopa"
+'''
 
 
     

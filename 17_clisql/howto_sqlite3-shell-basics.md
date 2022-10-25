@@ -2,21 +2,28 @@ SJS: Shinji, Jeffery, Sebastian
 
 SoftDev
 
-K13 -- Egoless + CSS
+K17 -- SQLite How-To
 
-2022-18-10
+2022-24-10
 
-time spent: 2hrs
+time spent: .5hrs
+
+
+DISCOS:
+
+* Utilize databases for long sets of data through making specific categories of data accessible and visible
+* Use queries to find items that have specific values
+
 
 # how-to :: SQLite3 Shell Basics
 ---
 ## Overview
+This how-to will teach how to do the basics in SQLite3, which is used to create data files. 
+This guide will go through creating tables, inserting data, and accessing that data.
 
-
-### Estimated Time Cost: x.x hrs (round to nearest 0.1)
+### Estimated Time Cost: 0.1 hrs (round to nearest 0.1)
 
 ### Prerequisites:
-
 - Install SQLite3
 
 
@@ -35,7 +42,7 @@ b. Column can be PRIMARY KEY  (every entry is unique & != NULL) or NOT NULL (No 
 INSERT INTO <tbl_name> VALUES ( <field 1>, <field 2> ...)
 ```
 
-4. Get values from entries using ```SELECT```
+4. Get values from entries
 ```
 SELECT * FROM <tbl_name>;
 SELECT <field_name> FROM <tbl_name>;
@@ -44,24 +51,16 @@ SELECT <field_name> FROM <tbl_name>;
 a. Use * to get all fields from that table
 b. Use <field_name> to get a single field
 
-
-1. Step, with [hyperlink](https://xkcd.com)s...
-
-
 ### Resources
-* thing1
-* thing2
-
+* [Mr. Mykolyk's readme](https://github.com/stuy-softdev/notes-and-code/blob/main/smpl/k17-18sqlite/readme.md)
+* [SQLite Documentation](https://www.sqlite.org/cli.html)
 ---
 
-Accurate as of (last update): 2022-mm-dd
+Accurate as of (last update): 2022-10-24
 
 #### Contributors:  
-Clyde "Thluffy" Sinclair  
-Thundercleese, pd2  
-Buttercup, pd7  
-Blossom, pd7  
-Bubbles, pd7  
-Fake Grimlock, pd8  
+Jeffery, pd8  
+Sebastian, pd8  
+Shinji, pd8  
 
-_Note: the two spaces after each name are important! ( <--burn after reading)  _
+

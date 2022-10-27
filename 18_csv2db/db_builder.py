@@ -30,7 +30,7 @@ print(info)
 with open('students.csv', newline='') as csvfile:
     reader = csv.DictReader(csvfile)
     c.execute("CREATE TABLE IF NOT EXISTS students(name TEXT, age INTEGER, id INTEGER PRIMARY KEY)")
-    tolist = [(row['name'], row['age'], row['id']) for row in reader]
+    tolist = [(row['name'], row['age'], row['id']) for row in reader] # Adds every row in the csv into a list/tuple, which can be fed as an argument in the next line
     c.executemany("INSERT INTO students values (?, ?, ?)", tolist)
     
 command = "SELECT * from students"          # test SQL stmt in sqlite3 shell, save as string

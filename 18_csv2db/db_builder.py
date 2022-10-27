@@ -23,14 +23,20 @@ with open('courses.csv', newline='') as csvfile:
     c.execute("CREATE TABLE IF NOT EXISTS courses(code TEXT, mark INTEGER, id INTEGER)")    
     for row in reader:
         c.execute("INSERT INTO courses values (?, ?, ?)", [row['code'], row['mark'], row['id']])
+        
 info = c.execute("select * from courses;").fetchall()
 print(info)
 
-# with open('students.csv', newline='') as csvfile:
-#     reader = csv.DictReader(csvfile)
-command = "CREATE TABLE IF NOT EXISTS students(name TEXT, age INTEGER, id INTEGER PRIMARY KEY)"          # test SQL stmt in sqlite3 shell, save as string
+with open('students.csv', newline='') as csvfile:
+    reader = csv.DictReader(csvfile)
+    c.execute("CREATE TABLE IF NOT EXISTS students(name TEXT, age INTEGER, id INTEGER PRIMARY KEY)")
+    tolist = [(row['name'], row['age'], row['id']) for row in reader]
+    c.executemany("INSERT INTO students values (?, ?, ?)", tolist)
+    
+command = "SELECT * from students"          # test SQL stmt in sqlite3 shell, save as string
 
-c.execute(command)    # run SQL statement
+info = c.execute(command).fetchall()    # run SQL statement
+print(info)
 
 #==========================================================
 

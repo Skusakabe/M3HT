@@ -1,7 +1,7 @@
-#SJS: Shinji, Jeremy and Sebastian
+#SJS: Shinji, Jeffery and Sebastian
 #SoftDev  
-#skeleton/stub :: SQLITE3 BASICS
-#Oct 2022
+#K18 -- SQLite in Python
+#2022-10-26
 
 #TODO: figure out how to run the python code multiple times without adding duplicate information into the tables
 

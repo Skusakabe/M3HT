@@ -7,9 +7,7 @@ time spent:
 '''
 
 
-from flask import Flask             #facilitate flask webserving
-from flask import render_template   #facilitate jinja templating
-from flask import request           #facilitate form submission
+from flask import Flask, render_template, request, session, redirect, url_for
 
 #the conventional way:
 #from flask import Flask, render_template, request
@@ -18,165 +16,43 @@ app = Flask(__name__)    #create Flask object
 
 
 '''
-trioTASK:
-~~~~~~~~~~~ BEFORE RUNNING THIS, ~~~~~~~~~~~~~~~~~~
-...read for understanding all of the code below.
-Some will work as written; other sections will not. 
-TASK: Predict which...
-Devise some simple tests you can run to "take apart this engine," as it were.
-Execute your tests.
-Process results.
 
-PROTIP: Insert your own in-line comments
- wherever they will help
-  your future self and/or current teammates
-   understand what is going on.
 '''
 
-@app.route("/", methods=['GET', 'POST'])
-def disp_loginpage():
-    print("\n\n\n")
-    print("***DIAG: this Flask obj ***")
-    print(app) ## Print out the app name
-    print("***DIAG: request obj ***")
-    print(request) ## Prints out the request name/address
-    print("***DIAG: request.args ***")
-    print(request.args) ## Prints out the request information
-    #print("***DIAG: request.args['username']  ***")
-    #print(request.args['username'])
-    print("***DIAG: request.headers ***")
-    print(request.headers)
+app.secret_key = '77ad3ef4fbaf3d0cd0db350b92373f8aef6ec1843bffbef0626398d52be358cf'
+
+userpass = {}
+userpass['LittleTimmy'] = 'password123'
+
+@app.route("/")
+def index():
+    if 'username' in session:
+        #go to main(response) page
+        return redirect(url_for('response'))
+    #go to login page
+    return redirect(url_for('login'))
+
+@app.route("/login", methods=['GET', 'POST'])
+def login(): ## Maybe more methods will work in the /login root
+    if request.method == 'POST':
+        if request.form['username'] in userpass.keys():
+            if userpass[request.form['username']] == request.form['password']:
+                session['username'] = request.form['username']
+                return redirect(url_for('index'))
+            return "wrong password"
+        return "username not found"
     return render_template( 'login.html' )
 
-
-@app.route("/auth", methods=['GET', 'POST'])
-def authenticate(): ## Maybe more methods will work in the /auth root
-    print("\n\n\n")
-    print("***DIAG: this Flask obj ***")
-    print(app)
-    print("***DIAG: request obj ***")
-    print(request)
-    print("***DIAG: request.args ***")
-    print(request.form)
-    #print("***DIAG: request.args['username']  ***")
-    #print(request.args['username']) This will work here, but not if uncommented in disp_loginpage
-    print("***DIAG: request.headers ***")
-    print(request.headers)
-    print(request.method)
-    return render_template( 'response.html', username = request.form['username'], requesttype=request.method )  #response to a form submission
-'''
-@app.route("/response", methods=['GET','POST'])
+@app.route("/response", methods=['GET', 'POST'])
 def response():
-    print("\n\n\n")
-    print("***DIAG: this Flask obj ***")
-    print(app)
-    print("***DIAG: request obj ***")
-    print(request)
-    print("***DIAG: request.args ***")
-    print(request.args)
-    print(request.method)
-    if request.method == 'POST':
-    username=request.form['username']
-    return (username)
-return "aopa"
-'''
+    return render_template( 'response.html' )
 
-
+@app.route("/logout")
+def logout():
+    session.pop('username', None)
+    return redirect(url_for('index'))
     
 if __name__ == "__main__": #false if this file imported as module
     #enable debugging, auto-restarting of server when this file is modified
     app.debug = True 
     app.run()
-
-
-'''
-Shinji, Jeffery, Sebastian
-SoftDev
-K<12> -- Post Get
-<2022>-<17>-<10>
-time spent: 2.60
-'''
-
-
-from flask import Flask             #facilitate flask webserving
-from flask import render_template   #facilitate jinja templating
-from flask import request           #facilitate form submission
-
-#the conventional way:
-#from flask import Flask, render_template, request
-
-app = Flask(__name__)    #create Flask object
-
-
-'''
-trioTASK:
-~~~~~~~~~~~ BEFORE RUNNING THIS, ~~~~~~~~~~~~~~~~~~
-...read for understanding all of the code below.
-Some will work as written; other sections will not. 
-TASK: Predict which...
-Devise some simple tests you can run to "take apart this engine," as it were.
-Execute your tests.
-Process results.
-
-PROTIP: Insert your own in-line comments
- wherever they will help
-  your future self and/or current teammates
-   understand what is going on.
-'''
-
-@app.route("/", methods=['GET', 'POST'])
-def disp_loginpage():
-    print("\n\n\n")
-    print("***DIAG: this Flask obj ***")
-    print(app) ## Print out the app name
-    print("***DIAG: request obj ***")
-    print(request) ## Prints out the request name/address
-    print("***DIAG: request.args ***")
-    print(request.args) ## Prints out the request information
-    #print("***DIAG: request.args['username']  ***")
-    #print(request.args['username'])
-    print("***DIAG: request.headers ***")
-    print(request.headers)
-    return render_template( 'login.html' )
-
-
-@app.route("/auth", methods=['GET', 'POST'])
-def authenticate(): ## Maybe more methods will work in the /auth root
-    print("\n\n\n")
-    print("***DIAG: this Flask obj ***")
-    print(app)
-    print("***DIAG: request obj ***")
-    print(request)
-    print("***DIAG: request.args ***")
-    print(request.form)
-    #print("***DIAG: request.args['username']  ***")
-    #print(request.args['username']) This will work here, but not if uncommented in disp_loginpage
-    print("***DIAG: request.headers ***")
-    print(request.headers)
-    print(request.method)
-    return render_template( 'response.html', username = request.form['username'], requesttype=request.method )  #response to a form submission
-'''
-@app.route("/response", methods=['GET','POST'])
-def response():
-    print("\n\n\n")
-    print("***DIAG: this Flask obj ***")
-    print(app)
-    print("***DIAG: request obj ***")
-    print(request)
-    print("***DIAG: request.args ***")
-    print(request.args)
-    print(request.method)
-    if request.method == 'POST':
-    username=request.form['username']
-    return (username)
-return "aopa"
-'''
-
-
-    
-if __name__ == "__main__": #false if this file imported as module
-    #enable debugging, auto-restarting of server when this file is modified
-    app.debug = True 
-    app.run()
-
-

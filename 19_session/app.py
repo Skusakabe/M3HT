@@ -1,9 +1,9 @@
 '''
 Shinji, Jeffery, Sebastian
 SoftDev
-K<19> --
-<2022>-<3>-<11>
-time spent:
+K<19> -- Login Session
+<2022>-<11>-<3>
+time spent: 2hrs
 '''
 
 
@@ -39,13 +39,13 @@ def login(): ## Maybe more methods will work in the /login root
             if userpass[request.form['username']] == request.form['password']:
                 session['username'] = request.form['username']
                 return redirect(url_for('index'))
-            return "wrong password"
-        return "username not found"
-    return render_template( 'login.html' )
+            return render_template('login.html', error = "Password is incorrect")
+        return render_template('login.html', error = "Username does not exist")
+    return render_template('login.html')
 
 @app.route("/response", methods=['GET', 'POST'])
 def response():
-    return render_template( 'response.html' )
+    return render_template( 'response.html' , username = session['username'])
 
 @app.route("/logout")
 def logout():

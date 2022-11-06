@@ -2,10 +2,9 @@
 <!-- 
 Shinji, Jeffery, Sebastian
 SoftDev
-K<19> --
-<2022>-<3>-<11>
-time spent: 
-
+K<19> -- Login Session
+<2022>-<11>-<3>
+time spent: 2hrs
  -->
 
 
@@ -17,13 +16,16 @@ time spent:
 
   <body>
     <h1>
-      
+      SJS: Shinji, Jeffery, Sebastian
     </h1>
 
 
     <h3>
       Enter your username and password below to proceed.
     </h3>
+    <h4>
+      {{error}}
+    </h4>
     <form action="/login", method="post">
       Username: <input type="text" name="username"> </br>
       Password: <input type="text" name="password"> </br>

@@ -10,3 +10,4 @@ DISCO:
 
 QCC:
 * How can we use a hyperlink to direct to a route?
+* Use session['<variable>'] to find the value of specific fields in the session

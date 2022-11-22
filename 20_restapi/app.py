@@ -1,3 +1,11 @@
+'''
+Shinji, Wilson
+SoftDev
+K<20> -- A RESTful Journey Skyward
+<2022>-<11>-<21>
+time spent: 0.8 hours
+'''
+
 from flask import Flask, render_template
 import requests
 app = Flask(__name__)

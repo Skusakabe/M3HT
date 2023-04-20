@@ -101,10 +101,16 @@ var fact = function(n) {
 }
 // GCD
 var gcd = function (a, b) {
+  if (a > b) {
     if (a % b == 0) {
         return b;
     }
     return gcd(a, a % b);   
+  }
+  if (b % a == 0) {
+    return a;
+  }
+  return gcd(b, b % a);
 }
 
 // In addition to the style shown above,

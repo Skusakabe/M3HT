@@ -16,9 +16,11 @@ var toggleMode = (e) => {
     console.log("toggling...");
     if (mode === "rect") {
         mode = "circ";
+        modeToggle.innerHTML = "circ";
     }
     else {
         mode = "rect";
+        modeToggle.innerHTML = "rect";
     }
 }
 
